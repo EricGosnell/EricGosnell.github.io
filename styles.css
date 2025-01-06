@@ -1,0 +1,515 @@
+body, h1, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-padding-top: 60px;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    .body-no-focus {
+        pointer-events: none;
+        * {
+            outline: none;
+        }
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 998;
+    background-color: #333;
+    padding: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        color: white;
+        text-decoration: none;
+    } a:hover {
+        color: #0077cc;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+        list-style: none;
+        padding: 0;
+        margin-right: 45px;
+        li {
+            margin: 0 15px;
+            a {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .navbar-home {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        font-size: 24px;
+    }
+    .navbar-icons {
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+        a {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+    }
+}
+
+main {
+    margin-top: 60px; /* Offset for the fixed navbar */
+    section {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        h1 {
+            font-size: 36px;
+        }
+    }
+    .cardFlexBox {
+        display: flex;
+        gap: 40px;
+        overflow: visible;
+        padding: 10px;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        align-items: stretch;
+        .card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            height: 100%;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            .hoverText {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                color: white;
+                background-color: rgba(0, 0, 0, 0.4);
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 12px;
+                text-align: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            }
+            .hoverLink {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                color: white;
+                font-size: 28px;
+                opacity: 0; /* Hidden by default */
+                transition: opacity 0.3s ease;
+                a {
+                    color: white;
+                    text-decoration: none;
+                } a:hover {
+                      color: #0077cc;
+                  }
+            }
+            .cardImg {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            .cardTextContainer {
+                padding: 15px;
+                text-align: center;
+                .cardHeader {
+                    font-size: 1.2rem;
+                    margin-bottom: 10px;
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
+                }
+                .cardDescription {
+                    white-space: normal;
+                    word-wrap: break-word;
+                    transition: opacity 0.3s ease, visibility 0.3s ease;
+                    color: #333;
+                }
+                .cardSkills {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    justify-content: center;
+                    margin-top: 10px;
+                    .projectSkill {
+                        display: inline;
+                        background-color: #eaeaea;
+                        border: 1px solid black;
+                        padding: 2px 5px;
+                        border-radius: 3px;
+                        font-family: monospace;
+                        color: #333;
+                        font-size: 14px;
+                        white-space: pre-wrap;
+                        word-wrap: break-word;
+                    }
+                }
+            }
+        } .card:hover {
+              transform: scale(1.1);
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+              .hoverText, .hoverLink {
+                  opacity: 1;
+              }
+          }
+    }
+}
+
+#aboutMe {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-image: url("img/WindRiverPano.jpg");
+    background-size: cover;
+    a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px dashed;
+    } a:hover {
+        color: #0077cc;
+    }
+
+    .aboutMeBackground {
+        background-color: #f4f4f4;
+        opacity: 0.9;
+        border-radius: 20px;
+        padding: 30px;
+        width: 80%;
+        max-width: 1200px;
+        box-sizing: border-box;
+    }
+    .aboutMeContent {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        button {
+            padding: 15px 30px;
+            opacity: 1;
+            font-size: 18px;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            background-color: #0077cc;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        } button:hover {
+            background-color: #005fa3;
+            transform: scale(1.05);
+        } button:active {
+            transform: scale(1);
+        }
+
+        .professionalDescription, .portrait, .personalDescription {
+            flex: 1; /* Equal width for all sections */
+            max-width: 30%;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+        .portrait {
+            text-align: center;
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 25%;
+                width: auto;
+                height: auto;
+                box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.35);
+            }
+            .hoverCaption {
+                opacity: 0;
+                color: #444444;
+                font-size: 12px;
+                transition: opacity 0.3s ease;
+            } .hoverCaption:hover,
+            img:hover + .hoverCaption {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+#projects {
+    background-color: #FAFAFA;
+}
+
+.modal {
+    pointer-events: auto;
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    justify-content: center;
+    .modalContent {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 100%;
+        max-width: 1400px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        .modalTitle {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            padding: 10px;
+        }
+        .modalText {
+            font-size: 1rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+        .inline-code {
+            display: inline-block;
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #333;
+            font-size: 14px;
+        }
+        .code-block-container {
+            position: relative;
+            display: inline-block;
+            min-width: 50%;
+            max-width: 100%;
+            .code-block {
+                display: inline-block;
+                max-height: 15em;
+                max-width: 100%;
+                min-width: 100%;
+                background-color: #f4f4f4;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                overflow: auto;
+                box-sizing: border-box;
+                text-align: left;
+                margin: 0;
+                transition: max-height 0.3s ease;
+                pre {
+                    padding: 0;
+                    margin-top: -0.8rem;
+                    word-wrap: normal;
+                }
+                code {
+                    font-size: 14px;
+                    color: #333;
+                    line-height: 1.5;
+                    margin-top: 0;
+                    padding: 0;
+                }
+            }
+            .collapsible-code {
+                position: relative;
+                max-width: 100%;
+                .toggle-btn {
+                    position: absolute;
+                    bottom: 1rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #888888;
+                    color: white;
+                    border: none;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    span {
+                        margin-left: 5px;
+                        font-size: 12px;
+                    }
+                } .toggle-btn:hover {
+                      background-color: #005fa3;
+                }
+            } .collapsible-code.expanded .code-block {
+                max-height: none;
+            }
+        }.code-block-container:hover .copy-btn {
+            display: inline-block;
+        }
+        .copy-btn {
+            display: none; /* Hide the button by default */
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #888888;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 10;
+            transition: background-color 0.2s ease;
+            i {
+                margin-right: 5px;
+            }
+        } .copy-btn:hover {
+            background-color: #005fa3;
+        }
+        .close {
+            color: #aaa;
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }.close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+#resumeContent {
+    text-align: left;
+    .download-btn {
+        position: absolute;
+        top: 20px; /* Same vertical position as close button */
+        left: 20px;
+        background-color: #0077cc;
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s;
+        i {
+            font-size: 16px; /* Adjust icon size */
+        }
+    } .download-btn:hover {
+          background-color: #005fa3;
+          text-decoration: none;
+          /*transform: scale(1.05);*/
+    }
+    .resumeTitle {
+        font-family: Inter, serif;
+        font-size: 48px;
+        justify-content: center;
+        text-align: center;
+        font-weight: lighter;
+        margin-top: -50px;
+        b {
+            font-family: "Inter Black", serif;
+        }
+    }
+    .resumeLinks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        margin-top: -20px;
+        font-family: Inter, serif;
+        a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dashed;
+        } a:hover {
+              color: #0077cc;
+        }
+    }
+    .resumeContainer {
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        font-family: Inter, serif;
+        a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dashed;
+        } a:hover {
+            color: #0077cc;
+        }
+        .resumeHeader {
+            text-align: left;
+        }
+        .experienceHeader {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+            align-items: start;
+            .leftColumn {
+                text-align: left;
+                ul {
+                    padding-left: 20px;
+                    list-style-type: disc;
+                }
+            }
+            .rightColumn {
+                text-align: right;
+                padding-right: 5px;
+            }
+        }
+        .experienceBody {
+            padding-left: 40px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+    }
+}
+
+footer {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px dashed;
+    } a:hover {
+        color: #0077cc;
+    }
+}

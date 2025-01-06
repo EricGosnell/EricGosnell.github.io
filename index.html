@@ -2,9 +2,344 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=100, initial-scale=1">
     <title>Eric Gosnell</title>
+    <link rel="icon" href="img/mountainIcon512.png" sizes="512x512" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-gpx@1.7.0/dist/leaflet-gpx.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/monokai-sublime.min.css">
+-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 <body>
-    <p>Hello, World!</p>
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-home">
+            <a href="#aboutMe">Eric Gosnell</a>
+        </div>
+        <ul>
+            <li><a href="#" id="resumeLink" onclick="openModal('resumeContent','')">Resume</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#interests">Interests</a></li>
+        </ul>
+        <div class="navbar-icons">
+            <a href="https://www.linkedin.com/in/eric-gosnell-23932a24a/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/EricGosnell" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:eric.gosnell@colorado.edu" target="_blank" aria-label="Mail">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Content-->
+    <main>
+        <section id="aboutMe">
+            <div class="aboutMeBackground">
+                <p style="font-size: 48px;"><b>Eric</b> Gosnell</p>
+                <p style="font-size: 24px; margin-top:-16px;">(he/him)</p>
+<!--                <p style="font-size: 16px;"><a href="mailto:eric.gosnell@colorado.edu">eric.gosnell@colorado.edu</a></p>-->
+                <br>
+                <div class="aboutMeContent">
+                    <div class="professionalDescription">
+                        <p>
+                            Hello! I am currently a junior at the
+                            <a href="https://www.colorado.edu/" target="_blank">University of Colorado Boulder</a>,
+                            working towards both my <b>BS</b> and <b>MS</b> in <b>Computer Science</b> with a minor in Computer Engineering
+                            and a certificate in Geographic Information Science and Computational Science.
+                        </p>
+                        <br>
+                        <p>
+                            I am interested in low-level programming, computer architecture, cartography, and weather dynamics.
+                        </p>
+                        <br>
+                        <button class="link-btn" onclick="openModal('resumeContent','')">View Resume</button>
+                    </div>
+                    <div class="portrait">
+                        <img src="img/backpackingSelfie.jpg"
+                             alt="Selfie solo-backpacking in the Gore Range.">
+                        <p class="hoverCaption">Solo backpacking in the Gore Range, CO. 2023</p>
+                    </div>
+                    <div class="personalDescription">
+                        <p>
+                            I grew up in the Colorado Rockies and love everything about being in the mountains, and have a small obsession with the arctic.
+                            You can learn more about some of my adventures in the <a href="#interests">interests</a> section below.
+                        </p>
+                        <br>
+                        <p>
+                            A fun fact about me is that I have citizenship in three countries: United States, Canada, and Ireland.
+                        </p>
+                        <br>
+                        <br>
+                        <button><a href="mailto:eric.gosnell@colorado.edu" target="_blank">Contact Me</a></button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="projects">
+            <h1>Projects</h1>
+            <p>Click on a project to learn more!</p>
+            <br>
+            <div class="cardFlexBox">
+                <div class="card" id="mountainScene" onclick="openModal('mountainSceneContent','OpenGL Mountain Scene')">
+                    <img class="cardImg" src="img/MountainSceneSmall.png">
+                    <div class="hoverLink">
+                        <a href="https://github.com/EricGosnell/CSCI4229-Mountain-Scene" target="_blank" aria-label="GitHub" onclick="stopClickPropagation(event)"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="cardTextContainer">
+                        <h2 class="cardHeader">OpenGL Mountain Scene</h2>
+                        <p class="cardDescription">Description of project...</p>
+                        <p class="cardSkills">
+                            <span class="projectSkill">C</span>
+                            <span class="projectSkill">OpenGL</span>
+                            <span class="projectSkill">ArcGIS Pro</span>
+                            <span class="projectSkill">GDAL</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card" id="demAccuracyProposal" onclick="openModal('demAccuracyContent','Digital Elevation Modal Accuracy Improvement Proposal')">
+                    <img class="cardImg" src="img/DEM.png">
+                    <div class="cardTextContainer">
+                        <h2 class="cardHeader">DEM Accuracy Improvement Proposal</h2>
+                        <p class="cardDescription">An original academic proposal for improving the resolution and accuracy of digital elevation models using remote sensing techniques and machine learning algorithms.</p>
+                        <p class="cardSkills">
+                            <span class="projectSkill">Machine Learning</span>
+                            <span class="projectSkill">LiDAR Data Manipulation</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card" id="placeholder0" onclick="openModal('placeholderContent','Placeholder Project')">
+                    <img class="cardImg" src="img/placeholder.png">
+                    <div class="hoverText">Hover Text</div>
+                    <div class="hoverLink">
+                        <a href="https://github.com/EricGosnell" target="_blank" aria-label="GitHub" onclick="stopClickPropagation(event)"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="cardTextContainer">
+                        <h2 class="cardHeader">Placeholder</h2>
+                        <p class="cardDescription">Description of project... this is a lengthy description of my project which included a lot of work.
+                            Click to learn more about it!
+                        </p>
+                        <p class="cardSkills">
+                            <span class="projectSkill">Languages</span>
+                            <span class="projectSkill">Libraries</span>
+                            <span class="projectSkill">Skills</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card" id="placeholder1" onclick="openModal('placeholderContent','Placeholder Project')">
+                    <img class="cardImg" src="img/placeholder.png">
+                    <div class="hoverText">Hover Text</div>
+                    <div class="hoverLink">
+                        <a href="https://github.com/EricGosnell" target="_blank" aria-label="GitHub" onclick="stopClickPropagation(event)"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="cardTextContainer">
+                        <h2 class="cardHeader">Placeholder</h2>
+                        <p class="cardDescription">Description of project... this is a lengthy description of my project which included a lot of work.
+                            Click to learn more about it!
+                        </p>
+                        <p class="cardSkills">
+                            <span class="projectSkill">Languages</span>
+                            <span class="projectSkill">Libraries</span>
+                            <span class="projectSkill">Skills</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="interests">
+            <h1>Interests</h1>
+            <div class="cardFlexBox">
+                <div class="card" id="hiking" onclick="openModal('hikingContent','Hiking and Backpacking')">
+                    <img class="cardImg" src="img/templePass.png">
+                    <div class="hoverText"><i class="fas fa-map-marker-alt"></i> Temple Pass, WY</div>
+                    <div class="cardTextContainer">
+                        <h2 class="cardHeader">Hiking and Backpacking</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact: <a href="mailto:eric.gosnell@colorado.edu" target="_blank">eric.gosnell@colorado.edu</a></p>
+        <p>&copy; 2024 Eric Gosnell. All rights reserved. Images &copy; Eric Gosnell</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modalContent">
+                <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="modalTitle">Project Details</h2>
+            <div id="resumeContent" class="modalText">
+                <a href="pdf/Eric_Gosnell_Resume.pdf" target="_blank" class="download-btn">
+                    <i class="fas fa-file-pdf"></i> View PDF
+                </a>
+                <p class="resumeTitle"><b>Eric</b> Gosnell</p>
+                <br>
+                <p class="resumeLinks">
+                    <a href="mailto:eric.gosnell@colorado.edu" target="_blank"><i class="fas fa-envelope"></i> eric.gosnell@colorado.edu</a>
+                    <a href="https://www.linkedin.com/in/eric-gosnell-23932a24a/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/eric-gosnell-23932a24a</a>
+                    <a href="https://github.com/EricGosnell" target="_blank"><i class="fab fa-github"></i> github.com/EricGosnell</a>
+                </p>
+                <hr>
+                <div class="resumeContainer">
+                    <h1 class="resumeHeader">Education</h1>
+                    <div class="experienceHeader">
+                        <div class="leftColumn">
+                            <p><b>Professional Master of Science, Computer Science</b>, <i>University of Colorado Boulder</i></p>
+                            <p><b>Bachelor of Science, Computer Science</b>, <i>University of Colorado Boulder</i></p>
+                            <ul>
+                                <li><i>Minor in Computer Engineering</i></li>
+                                <li><i>Certificate in Geographic Information Science and Computational Science</i></li>
+                            </ul>
+                        </div>
+                        <div class="rightColumn">
+                            <p>Expected in May 2027</p>
+                            <p>Expected in May 2026</p>
+                            <p><i>Current GPA: 3.72 / 4.0</i></p>
+                        </div>
+                    </div>
+                    <h3 class="resumeHeader">Notable Coursework</h3>
+                    <p style="margin-top: -15px;"><b>CS:</b> Data Structures, Algorithms, Programming Languages, Software Development, Computer Systems,
+                        Operating Systems, Database Systems, Theory of Computation, Graphics, Robotics*</p>
+                    <p><b>CE:</b> Digital Logic, Computer Organization, Compiler Construction*, Advanced Computer Architecture*</p>
+                    <p><b>GIS:</b> Cartographic Design, Remote Sensing*, Snow Hydrology*</p>
+                    <p style="font-size: 16px">* In-Progress</p>
+                    <h3 class="resumeHeader">Awards</h3>
+                    <p style="margin-top: -15px;">Horace M. Hale Esteemed Scholar Award, Dean's List, Coal Creek Canyon Community Scholarship, Seal of Biliteracy in Spanish</p>
+
+                    <h1 class="resumeHeader">Skills</h1>
+                    <p><b>Tools:</b> Git/GitHub, GDB, Valgrind, CMake, Linux, Vivado, ArcGIS Pro</p>
+                    <p><b>Languages:</b> C/C++, Python, SystemVerilog, RISC-V Assembly, SQL, HTML, CSS, JavaScript, Java, Scala, Rust, LaTeX</p>
+                    <p><b>Libraries and Frameworks:</b> OpenGL, OpenMP, NumPy, Pandas, Django, NodeJS, Postgres, MongoDB</p>
+                    <h1 class="resumeHeader">Experience</h1>
+                    <div class="experienceHeader">
+                        <div class="leftColumn">
+                            <p><b>Computer Science Department Assistant</b> | <i>University of Colorado Boulder</i></p>
+                        </div>
+                        <div class="rightColumn">
+                            August 2024 -- Present
+                        </div>
+                    </div>
+                    <div class="experienceBody">
+                        <ul>
+                            <li>Manage the Computer Science Education Lab, which includes scheduling room bookings and providing resources to students.</li>
+                            <li>Assist the CS Front Office by answering phone calls, sorting mail, loaning out resources, and more.</li>
+                        </ul>
+                    </div>
+                    <div class="experienceHeader">
+                        <div class="leftColumn">
+                            <p><b>Forestry and Landscaping</b> | <i>Coal Creek Canyon, CO</i></p>
+                        </div>
+                        <div class="rightColumn">
+                            June 2020 - August 2024
+                            </div>
+                    </div>
+                    <div class="experienceBody">
+                        <ul>
+                            <li>Started a yard work service within the local mountain community, interfacing with a large
+                                number of clients and managing my teams schedule and tasks.</li>
+                            <li>Primarily built rock walls and cleared trees to mitigate wildfire risk and control erosion.</li>
+                            <li>Provided volunteer services to community members in need.</li>
+                        </ul>
+                    </div>
+                    <div class="experienceHeader">
+                        <div class="leftColumn">
+                            <p><b>Back-end Developer</b> | <i>Blueprint Boulder</i></p>
+                        </div>
+                        <div class="rightColumn">
+                            August 2022 - June 2023
+                        </div>
+                    </div>
+                    <div class="experienceBody">
+                        <ul>
+                            <li>Developed an online portal for the local non-profit organization Lafayette Empowerment Center.</li>
+                            <li>Created a database system for managing their students, programs, and donations.</li>
+                            <li>Experience with Python, Django, and Figma.</li>
+                        </ul>
+                    </div>
+                    <h1 class="resumeHeader">Volunteer Work</h1>
+                    <h1 class="resumeHeader"><a href="#projects" onclick="closeModal()">Projects</a></h1>
+                    <h1 class="resumeHeader"><a href="#interests" onclick="closeModal()">Interests</a></h1>
+                </div>
+            </div>
+            <div id="mountainSceneContent" class="modalText">
+                <h2>OpenGL Mountain Scene</h2>
+                <p>Details about the OpenGL Mountain Scene project go here...</p>
+            </div>
+            <div id="demAccuracyContent" class="modalText">
+                <p>...</p>
+            </div>
+            <div id="placeholderContent" class="modalText">
+                <p>Details about this project go here...</p>
+                <p>For this project, I made something that can be seen. It looks like this:</p>
+                <img src="img/placeholder.png">
+                <p>I even wrote some code in <span class="inline-code">main.c</span> that made that happen. You can copy it if you'd like. Here it is:</p>
+                <div class="code-block-container">
+<div class="code-block"><pre><code>// Example Program
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+</code></pre></div>
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="fas fa-copy"></i> Copy Code
+                    </button>
+                </div>
+                <p>This is a very long code snippet, too long to show all of it. Fortunately you can scroll or show more.</p>
+                <div class="code-block-container">
+<div class="collapsible-code"><div class="code-block"><pre><code>// Long Code Snippet
+void super_long() {
+    printf("This is a very long line of code. I probably shouldn't have a line this long but just in case I do I want to see what happens. In this case it should just go off the edge and allow me to scroll instead of text wrapping.\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+    printf("Hello, World!\n");
+}
+</code></pre></div>
+                        <button class="copy-btn" onclick="copyCode(this)"> <i class="fas fa-copy"></i> Copy Code</button>
+                        <button class="toggle-btn" onclick="toggleCode(this)">Show More <span>&#x25BC;</span></button>
+                    </div>
+                </div>
+
+                <p>I do need this to be even longer though, and I also want to test out the text wrapping to see what
+                    happens if I just keep typing and typing and typing until the text goes off the page. Hopefully this should
+                    be enough.</p>
+                <p>I do need this to be even longer though</p>
+                <p>I do need this to be even longer though</p>
+                <p>I do need this to be even longer though</p>
+                <p>I do need this to be even longer though</p>
+                <br>
+                <p>I even wrote a paper, and it looks like this:</p>
+                <embed src="pdf/sample.pdf" width="80%" height="1000px" type="application/pdf">
+            </div>
+            <div id="hikingContent" class="modalText">
+                <p>Map:</p>
+                <p>look at all the things I have to say about my hikes!</p>
+                <div id="map" style="width: 100%; height: 500px;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
