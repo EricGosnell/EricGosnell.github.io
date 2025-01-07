@@ -90,6 +90,24 @@
             <p>Click on a project to learn more!</p>
             <br>
             <div class="cardFlexBox">
+                <div class="card" id="personalWebsite" onclick="openModal('placeholderContent','Personal Website')">
+                    <img class="cardImg" src="img/placeholder.png">
+                    <div class="hoverText">Hover Text</div>
+                    <div class="hoverLink">
+                        <a href="https://github.com/EricGosnell" target="_blank" aria-label="GitHub" onclick="stopClickPropagation(event)"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="cardTextContainer">
+                        <h2 class="cardHeader">Personal Website</h2>
+                        <p class="cardDescription">Description of project... this is a lengthy description of my project which included a lot of work.
+                            Click to learn more about it!
+                        </p>
+                        <p class="cardSkills">
+                            <span class="projectSkill">Languages</span>
+                            <span class="projectSkill">Libraries</span>
+                            <span class="projectSkill">Skills</span>
+                        </p>
+                    </div>
+                </div>
                 <div class="card" id="mountainScene" onclick="openModal('mountainSceneContent','OpenGL Mountain Scene')">
                     <img class="cardImg" src="img/MountainSceneSmall.png">
                     <div class="hoverLink">
@@ -117,32 +135,14 @@
                         </p>
                     </div>
                 </div>
-                <div class="card" id="placeholder0" onclick="openModal('placeholderContent','Placeholder Project')">
+                <div class="card" id="clientscriptLibraries" onclick="openModal('placeholderContent','Clientscript Libraries')">
                     <img class="cardImg" src="img/placeholder.png">
                     <div class="hoverText">Hover Text</div>
                     <div class="hoverLink">
                         <a href="https://github.com/EricGosnell" target="_blank" aria-label="GitHub" onclick="stopClickPropagation(event)"><i class="fab fa-github"></i></a>
                     </div>
                     <div class="cardTextContainer">
-                        <h2 class="cardHeader">Placeholder</h2>
-                        <p class="cardDescription">Description of project... this is a lengthy description of my project which included a lot of work.
-                            Click to learn more about it!
-                        </p>
-                        <p class="cardSkills">
-                            <span class="projectSkill">Languages</span>
-                            <span class="projectSkill">Libraries</span>
-                            <span class="projectSkill">Skills</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="card" id="placeholder1" onclick="openModal('placeholderContent','Placeholder Project')">
-                    <img class="cardImg" src="img/placeholder.png">
-                    <div class="hoverText">Hover Text</div>
-                    <div class="hoverLink">
-                        <a href="https://github.com/EricGosnell" target="_blank" aria-label="GitHub" onclick="stopClickPropagation(event)"><i class="fab fa-github"></i></a>
-                    </div>
-                    <div class="cardTextContainer">
-                        <h2 class="cardHeader">Placeholder</h2>
+                        <h2 class="cardHeader">Clientscript Libraries</h2>
                         <p class="cardDescription">Description of project... this is a lengthy description of my project which included a lot of work.
                             Click to learn more about it!
                         </p>
@@ -277,7 +277,36 @@
                 <p>Details about the OpenGL Mountain Scene project go here...</p>
             </div>
             <div id="demAccuracyContent" class="modalText">
-                <p>...</p>
+                <p>In March 2024, I wrote an original academic research proposal which aims to increase the resolution and
+                    accuracy of digital elevation models through the combination of LiDAR sensing drones and a machine
+                    learning algorithm. The proposal focuses on the methods, limitations, and cost of this approach specifically
+                    within Colorado, however the concept can be applied globally.
+                </p>
+                <br>
+                <p>
+                    Currently, the highest resolution publicly available digital elevation models in Colorado are the 1-meter
+                    DEMs provided by the United States Geologic Survey 3D Elevation Program. The USGS DEMs have a few limitations
+                    in that acquiring higher resolution data is difficult and time-consuming with modern aviation and satellite
+                    technology. Additionally, since the data is gathered from far above the ground, steep terrain such as cliffs
+                    and gullies is often inaccurate and distorted. My method aims to improve both the resolution and the
+                    accuracy on steep terrain by collecting a small amount of high resolution data where possible, and
+                    extrapolating the results across state-wide terrain.
+                </p>
+                <br>
+                <p>
+                    The basic idea is to use the drones to get high resolution DEMs over a series of quadrants throughout
+                    Colorado that exhibit different terrain characteristics. From each unique area, half of the DEMs will
+                    be used as training data and the other half will be used to verify the effectiveness of the algorithm.
+                </p>
+                <br>
+                <p>
+                    The machine learning algorithm in question will accept a USGS 1-meter DEM as input, along with information
+                    about the location and characteristics of the quadrant, and output a high resolution DEM while still
+                    maintaining the true elevation data points provided by USGS.
+                </p>
+                <br>
+                <embed src="pdf/Gosnell,%20Eric%20-%20Improving%20Digital%20Elevation%20Model%20%20Accuracy%20in%20Colorado%20through%20Machine%20Learning.pdf" width="80%" height="1000px" type="application/pdf">
+
             </div>
             <div id="placeholderContent" class="modalText">
                 <p>Details about this project go here...</p>
